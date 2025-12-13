@@ -70,6 +70,10 @@ const greaterThan50 = costs.find(cost => cost > 50)
 
 console.log(greaterThan50)
 
-costs.sort()
+costs.sort(compare)
+
+function compare(a, b) {
+    return a - b
+}
 
 console.log(costs)
