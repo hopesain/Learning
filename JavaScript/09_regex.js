@@ -68,3 +68,17 @@ let splitString = "food,nyaudings,dances"
 let newSplitArray = splitString.split(/,/)
 
 console.log(newSplitArray)
+
+// Anchors 
+console.log("Anchors in Regex")
+
+// ^ anchor matches the character at the beginning of the text (string).
+let upperString = "Mountain"
+
+console.log(/^S/.test(upperString)) // false, the first character of mountain is not M.
+console.log(/^M/.test(upperString)) // true.
+
+// $ anchor matches the character at the end of the text (string).
+let dollarString = "Ocean"
+
+console.log(/N$/i.test(dollarString)) // True, last character of ocean is N.
