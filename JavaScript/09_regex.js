@@ -82,3 +82,4 @@ console.log(/^M/.test(upperString)) // true.
 let dollarString = "Ocean"
 
 console.log(/N$/i.test(dollarString)) // True, last character of ocean is N.
+
