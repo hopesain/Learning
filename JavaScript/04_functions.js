@@ -30,3 +30,6 @@ const increment = myCounter()
 console.log(increment())
 console.log(increment())
 console.log(increment())
+
+const secondIncrement = myCounter()
+console.log(secondIncrement())
