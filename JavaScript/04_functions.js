@@ -22,6 +22,10 @@ console.log(sayHello())
 const squareNumber = number => number * number
 console.log(squareNumber(5))
 
+const greetUser = (personName = "Anonymous", age = 18) => {
+    return "hello " + personName + " " + age
+}
+console.log(greetUser())
 
 
 //Closures 
