@@ -10,9 +10,18 @@ let value = celciusToKelvins(18)
 console.log(value + " Kelvins")
 
 
+//Arrow Functions
+console.log("arrow functions")
 const add = (a, b) => a + b
 
 console.log(add(2, 3))
+
+const sayHello = () => "hello world"
+console.log(sayHello())
+
+const squareNumber = number => number * number
+console.log(squareNumber(5))
+
 
 
 //Closures 
