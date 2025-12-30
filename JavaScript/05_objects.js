@@ -26,3 +26,30 @@ console.log(secondUser)
 
 let text = JSON.stringify(firstUser)
 console.log(text)
+
+//Prototypes
+console.log("Prototypes")
+
+function Teacher(fullname, age, gender, department) {
+    this.fullname = fullname,
+    this.age = age
+    this.gender = gender,
+    this.department = department,
+
+    this.greet = function() {
+        return "Hello " + this.fullname
+    }
+}
+
+Teacher.prototype.nationality = "Malawian"
+
+Teacher.prototype.teach = function() {
+    return `Today we are going to learn about ${this.department}...`
+}
+
+const firstTeacher = new Teacher("Hope Sain", 24, "male", "Technology")
+
+console.log(firstTeacher.greet())
+console.log(firstTeacher.nationality)
+console.log(firstTeacher.teach())
+
