@@ -19,8 +19,8 @@ let secondUser = new User("trevor", 25)
 console.log(firstUser.greet())
 console.log(secondUser.greet())
 
-// Inheritance 
 
+// Inheritance 
 class Student extends User {
     constructor(username, age, program) {
         super(username, age)
@@ -35,3 +35,44 @@ class Student extends User {
 
 let firstStudent = new Student("Hope Sain", 24, "Agricultural Innovations")
 console.log(firstStudent.getStudentInformation())
+
+// Polymorphism
+class PaymentProcessor {
+    processPayment(amount) {
+        throw new Error("processPayment must be implemented by child classes.")
+    }
+}
+
+class PayChanguPayment extends PaymentProcessor {
+    processPayment(amount) {
+        return `${amount} paid using PayChangu.`
+    }
+}
+
+class OneKhusaPayment extends PaymentProcessor {
+    processPayment(amount) {
+        return `${amount} paid using OneKhusa.`
+    }
+}
+
+class PawaPayPayment extends PaymentProcessor {
+    processPayment(amount) {
+        return `${amount} paid using PawaPay.`
+    }
+}
+
+class Pay {
+    constructor(paymentProcessor) {
+        this._paymentProcessor = paymentProcessor
+    }
+
+    makePayment(amount) {
+        return this._paymentProcessor.processPayment(amount)
+    }
+}
+
+const firstPayment = new Pay(new OneKhusaPayment)
+console.log(firstPayment.makePayment(4000))
+
+const secondPayment = new Pay(new PayChanguPayment)
+console.log(secondPayment.makePayment(10000))
