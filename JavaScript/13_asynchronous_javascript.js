@@ -90,7 +90,7 @@ function eatMeal() {
 }
 
 function cleanDishes() {
-    dishesCleaned = true
+    dishesCleaned = false
 
     return new Promise(
         (resolve, reject) => {
@@ -106,7 +106,31 @@ function cleanDishes() {
     )
 }
 
+//Method Chaining with Promises.
+console.log("Method Chaining")
+
 prepareMeal().then(value => {console.log(value); return eatMeal()})
              .then(value => {console.log(value); return cleanDishes()})
              .then(value => {console.log(value); console.log("All tasks completed")})
              .catch(error => console.error(error))
+
+// Async/Await Concept.
+console.log("Using Async/Await")
+
+async function performTasks() {
+    try {
+        const firstTask = await prepareMeal()
+        console.log(firstTask)
+
+        const secondTask = await eatMeal()
+        console.log(secondTask)
+
+        const thirdTask = await cleanDishes()
+        console.log(thirdTask)
+
+    } catch(error) {
+        console.error(error)
+    }
+}
+
+performTasks()
