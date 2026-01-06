@@ -109,4 +109,4 @@ function cleanDishes() {
 prepareMeal().then(value => {console.log(value); return eatMeal()})
              .then(value => {console.log(value); return cleanDishes()})
              .then(value => {console.log(value); console.log("All tasks completed")})
-             .catch(value => console.error(value))
+             .catch(error => console.error(error))
