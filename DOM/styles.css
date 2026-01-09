@@ -14,7 +14,7 @@ header {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 3rem 0 0;
 }
 
 .logo {
@@ -28,4 +28,27 @@ header {
     gap: 4rem;
     list-style: none;
     font-weight: bold;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    height: 100vh;
+
+}
+
+.side-bar {
+    font-weight: bold;
+    color: #fff;
+    background: #037bfc;
+    height: 100%;
+}
+
+.side-bar-items {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding-left: 1rem;
+
 }
