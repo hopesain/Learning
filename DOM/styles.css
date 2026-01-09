@@ -1,4 +1,31 @@
 body {
-    background-color: aliceblue;
+    margin: 0;
 }
 
+header {
+    background: #037bfc;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.logo {
+    font-size: 15px ;
+    flex: 1;
+
+}
+
+.nav-items {
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+    font-weight: bold;
+}
