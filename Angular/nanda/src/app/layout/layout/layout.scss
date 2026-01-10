@@ -1,0 +1,30 @@
+.layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "sidebar footer";
+}
+
+app-header {
+    grid-area: header;
+}
+
+app-siderbar {
+    grid-area: sidebar;
+}
+
+main {
+    grid-area: main;
+    overflow-y: auto;
+}
+
+app-footer {
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+}
