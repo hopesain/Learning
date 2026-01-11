@@ -1,8 +1,9 @@
 .header {
     height: 64px;
     margin: 0;
-    padding: 0;
-    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 0 20px;
     background: #037bfc;
     color: #fff;
     display: flex;

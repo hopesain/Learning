@@ -1,0 +1,15 @@
+.sidebar {
+    background: #037bfc;
+    color: #fff;
+    font-weight: bold;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.sidebar-items {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 0.4rem;
+    list-style: none;
+}
