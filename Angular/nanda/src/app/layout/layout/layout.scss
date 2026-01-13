@@ -28,6 +28,16 @@ main {
     padding: 0.5rem 3rem;
 }
 
+.mat-mdc-header-row {
+  background-color: #037bfc;
+}
+
+.mat-mdc-header-cell {
+  background-color: #037bfc;
+  color: #fff;
+}
+
+
 app-footer {
     grid-area: footer;
 }
