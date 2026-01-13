@@ -24,6 +24,10 @@ main {
     overflow-y: auto;
 }
 
+.table-container {
+    padding: 0.5rem 3rem;
+}
+
 app-footer {
     grid-area: footer;
 }
