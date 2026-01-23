@@ -1,0 +1,18 @@
+@startuml
+   actor Person
+
+   Person -> SadState: Broke as hell
+   HappyState -> SadState: Lost Money
+   SadState --> HappyState: Received Money
+   HappyState -> ExcitedState: Won a lottery
+   
+   loop 5 times
+       ExcitedState -> ExcitedState: Shall I donate
+   end
+
+   alt I am a good person
+       ExcitedState -> SatisfiedState: Donating Money
+   else I am not a good person
+       ExcitedState -> SatisfiedState: Keeping Money
+   end
+@enduml
