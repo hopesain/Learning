@@ -37,7 +37,13 @@ main {
   color: #fff;
 }
 
-
+.action-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    gap: 5px;
+    align-items: center;
+}
 app-footer {
     grid-area: footer;
 }

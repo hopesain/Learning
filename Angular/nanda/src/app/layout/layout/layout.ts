@@ -4,6 +4,7 @@ import { SidebarComponent } from '../sidebar/sidebar';
 import { FooterComponent } from '../footer/footer';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-layout',
@@ -13,7 +14,8 @@ import {MatTableModule} from '@angular/material/table';
     SidebarComponent,
     FooterComponent,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
