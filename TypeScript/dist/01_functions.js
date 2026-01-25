@@ -32,4 +32,12 @@ function optional_subtraction(first_number, second_number) {
     return first_number - (second_number || 0);
 }
 console.log(optional_subtraction(15, 2));
+//Default Parameters
+function default_division(first_number, second_number = 1) {
+    if (second_number == 0) {
+        return 0;
+    }
+    return first_number / second_number;
+}
+console.log(default_division(30, 2));
 //# sourceMappingURL=01_functions.js.map
