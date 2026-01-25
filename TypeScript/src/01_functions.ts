@@ -34,3 +34,10 @@ let full_name = (first_name: string, last_name: string): string => {
 } 
 
 console.log(full_name(first_name, last_name));
+
+//Optional Parameters
+function optional_subtraction(first_number: number, second_number?: number): number {
+    return first_number - (second_number || 0);
+}
+
+console.log(optional_subtraction(15, 2));

@@ -27,4 +27,9 @@ let full_name = (first_name, last_name) => {
     return first_name + " " + last_name;
 };
 console.log(full_name(first_name, last_name));
+//Optional Parameters
+function optional_subtraction(first_number, second_number) {
+    return first_number - (second_number || 0);
+}
+console.log(optional_subtraction(15, 2));
 //# sourceMappingURL=01_functions.js.map
