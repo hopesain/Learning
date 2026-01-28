@@ -9,22 +9,22 @@
 
 package main
 
-var stored_password = "password"
+var stored_password = "password";
 
 // Bad Approach.
 type BadUnlockDevice struct {
-	password string
+	password string;
 }
 
 func (b *BadUnlockDevice) Unlock() string {
 	if (b.password != stored_password) {
-		return "Incorrect password, try again"
+		return "Incorrect password, try again";
 	}
-	return "Device unlocked, welcome back"
+	return "Device unlocked, welcome back";
 }
 
 func (b *BadUnlockDevice) Lock() string {
-	return "Device locked"
+	return "Device locked";
 }
 
 /*
@@ -67,8 +67,22 @@ type FingerprintMethod struct {}
 
 func (f *FingerprintMethod) Unlock(credential string) string {
 	if (credential != stored_fingerprint) {
-		return "Fingerprint not recognized, try again"
+		return "Fingerprint not recognized, try again";
 	}
-	return "Device unlocked using fingerprint"
+	return "Device unlocked using fingerprint";
 }
 
+// Dependency Inversion Principle.
+type UnlockDeviceService struct {
+	method UnlockMethod
+}
+
+func UnlockDevice(method UnlockMethod) *UnlockDeviceService {
+	return &UnlockDeviceService{
+		method: method,
+	}
+}
+
+func (u UnlockDeviceService) Unlock(credential string) string {
+	return u.method.Unlock(credential)
+}
