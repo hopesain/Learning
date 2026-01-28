@@ -1,5 +1,5 @@
 /*
-	OPEN CLOSED PRINCIPLE
+	OPEN CLOSED PRINCIPLE (OCP)
 
 	Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
 

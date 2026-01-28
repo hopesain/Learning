@@ -1,5 +1,5 @@
 /*
-	SINGLE RESPONSIBILITY PRINCIPLE
+	SINGLE RESPONSIBILITY PRINCIPLE (SRP)
 	This principle states that a class should have only one reason to change.
 
 	Let's imagine that we have a File Manager, one approach adheres to SRP and the first one doesn't.
