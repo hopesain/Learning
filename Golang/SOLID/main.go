@@ -18,4 +18,6 @@ func main() {
 	fmt.Println(zipFileManager.Compress())
 	fmt.Println(zipFileManager.Decompress())
 
+	// Open Closed Principle Usage.
+	
 }

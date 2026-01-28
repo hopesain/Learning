@@ -9,7 +9,7 @@
 
 package main
 
-var stored_password = "password1234"
+var stored_password = "password"
 
 // Bad Approach.
 type BadUnlockDevice struct {
@@ -34,4 +34,41 @@ func (b *BadUnlockDevice) Lock() string {
 	You mind must be going through if statements chaining.
 	Relax my friend, we will use a strategy pattern to make sure that we adhere to OCP.
 */
+
+var stored_fingerprint = "fingerprint";
+
+var stored_face_id = "face_id";
+
+var stored_pin = "pin";
+
+type UnlockMethod interface {
+	Unlock(credential string) string;
+}
+
+type PasswordMethod struct {}
+
+func (p *PasswordMethod) Unlock(credential string) string {
+	if (credential != stored_password) {
+		return "Incorrect password, try again.";
+	}
+	return "Device unlocked using password.";
+}
+
+type FaceRecognitionMethod struct {}
+
+func (f *FaceRecognitionMethod) Unlock(credential string) string {
+	if (credential != stored_face_id) {
+		return "face cannot be recognized";
+	}
+	return "Device unlocked using FaceID";
+}
+
+type FingerprintMethod struct {}
+
+func (f *FingerprintMethod) Unlock(credential string) string {
+	if (credential != stored_fingerprint) {
+		return "Fingerprint not recognized, try again"
+	}
+	return "Device unlocked using fingerprint"
+}
 
