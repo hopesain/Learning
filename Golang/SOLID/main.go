@@ -18,6 +18,14 @@ func main() {
 	fmt.Println(zipFileManager.Compress())
 	fmt.Println(zipFileManager.Decompress())
 
-	// Open Closed Principle Usage.
-	
+	// Open Closed Principle and Dependency Inversion Principle Usage.
+	passwordUnlock := UnlockDevice(&PasswordMethod{})
+	fmt.Println(passwordUnlock.Unlock("password"))
+
+	fingerprintUnlock := UnlockDevice(&FingerprintMethod{})
+	fmt.Println(fingerprintUnlock.Unlock("angry_face"))
+
+	faceID := UnlockDevice(&FaceRecognitionMethod{})
+	fmt.Println(faceID.Unlock("face_id"))
+
 }

@@ -6,25 +6,24 @@
 	We will implement a mechanism of unlock devices (phones and laptops), both bad approach and a good one.
 */
 
-
 package main
 
-var stored_password = "password";
+var stored_password = "password"
 
 // Bad Approach.
 type BadUnlockDevice struct {
-	password string;
+	password string
 }
 
 func (b *BadUnlockDevice) Unlock() string {
-	if (b.password != stored_password) {
-		return "Incorrect password, try again";
+	if b.password != stored_password {
+		return "Incorrect password, try again"
 	}
-	return "Device unlocked, welcome back";
+	return "Device unlocked, welcome back"
 }
 
 func (b *BadUnlockDevice) Lock() string {
-	return "Device locked";
+	return "Device locked"
 }
 
 /*
@@ -35,41 +34,39 @@ func (b *BadUnlockDevice) Lock() string {
 	Relax my friend, we will use a strategy pattern to make sure that we adhere to OCP.
 */
 
-var stored_fingerprint = "fingerprint";
+var stored_fingerprint = "fingerprint"
 
-var stored_face_id = "face_id";
-
-var stored_pin = "pin";
+var stored_face_id = "face_id"
 
 type UnlockMethod interface {
-	Unlock(credential string) string;
+	Unlock(credential string) string
 }
 
-type PasswordMethod struct {}
+type PasswordMethod struct{}
 
 func (p *PasswordMethod) Unlock(credential string) string {
-	if (credential != stored_password) {
-		return "Incorrect password, try again.";
+	if credential != stored_password {
+		return "Incorrect password, try again."
 	}
-	return "Device unlocked using password.";
+	return "Device unlocked using password."
 }
 
-type FaceRecognitionMethod struct {}
+type FaceRecognitionMethod struct{}
 
 func (f *FaceRecognitionMethod) Unlock(credential string) string {
-	if (credential != stored_face_id) {
-		return "face cannot be recognized";
+	if credential != stored_face_id {
+		return "face cannot be recognized"
 	}
-	return "Device unlocked using FaceID";
+	return "Device unlocked using FaceID"
 }
 
-type FingerprintMethod struct {}
+type FingerprintMethod struct{}
 
 func (f *FingerprintMethod) Unlock(credential string) string {
-	if (credential != stored_fingerprint) {
-		return "Fingerprint not recognized, try again";
+	if credential != stored_fingerprint {
+		return "Fingerprint not recognized, try again"
 	}
-	return "Device unlocked using fingerprint";
+	return "Device unlocked using fingerprint"
 }
 
 // Dependency Inversion Principle.
