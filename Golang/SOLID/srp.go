@@ -66,3 +66,5 @@ func (z *ZipFileManager) Decompress() string {
 	message := fmt.Sprintf("Decompressing file: %s", z.filename);
 	return message;
 }
+
+// Usage.

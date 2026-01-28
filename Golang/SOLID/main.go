@@ -1,7 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello, munikole makola.");
+	// Single Responsibility Principle Usage.
+	fileManager := &FileManager{
+		filename: "NNDI_Report.csv",
+	}
+	fmt.Println(fileManager.ReadFile())
+	fmt.Println(fileManager.WriteFile())
+
+	zipFileManager := &ZipFileManager{
+		filename: "fintech_report.doc",
+	}
+	fmt.Println(zipFileManager.Compress())
+	fmt.Println(zipFileManager.Decompress())
+
 }
