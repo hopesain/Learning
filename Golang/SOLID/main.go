@@ -28,4 +28,11 @@ func main() {
 	faceID := UnlockDevice(&FaceRecognitionMethod{})
 	fmt.Println(faceID.Unlock("face_id"))
 
+	//Liskuv Substition Principle Usage.
+	paychanguPayment := ProcessPayment(&PaychanguMethod{})
+	fmt.Println(paychanguPayment.Pay(5000))
+
+	malipoPayment := ProcessPayment(&MalipoMethod{})
+	fmt.Println(malipoPayment.Pay(8000))
+
 }
