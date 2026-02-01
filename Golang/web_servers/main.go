@@ -1,18 +1,16 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"net/http"
 )
 
-type hello struct{}
-
-func (h hello) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	message := "<h1>Hello World</h1>"
-
-	w.Write([]byte(message))
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "<h1>Hello, world</h1>")
 }
 
 func main() {
-	log.Fatal(http.ListenAndServe(":8080", hello{}))
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
+	fmt.Println("Server running")
 }
