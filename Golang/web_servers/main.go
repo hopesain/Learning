@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"html/template"
+	"net/http"
 	"path/filepath"
 )
 
@@ -11,21 +11,25 @@ func renderTemplate(w http.ResponseWriter, template_path string) {
 	t, err := template.ParseFiles(template_path)
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		return 
+		return
 	}
 	t.Execute(w, nil)
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
+		template_path := filepath.Join("templates", "404", "404.html")
+
+		renderTemplate(w, template_path)
+
 		w.WriteHeader(http.StatusNotFound)
-		fmt.Fprintln(w, "<h1>Not found, this page does not exist.</h1>")
+
 		return
 	}
 
 	template_path := filepath.Join("templates", "home", "home.html")
 
-	renderTemplate(w,template_path)
+	renderTemplate(w, template_path)
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
@@ -33,7 +37,9 @@ func contactHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "<h1>About Page</h1>")
+	template_path := filepath.Join("templates", "about", "about.html")
+
+	renderTemplate(w, template_path)
 }
 
 func main() {
