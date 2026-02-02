@@ -3,7 +3,18 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"html/template"
+	"path/filepath"
 )
+
+func renderTemplate(w http.ResponseWriter, template_path string) {
+	t, err := template.ParseFiles(template_path)
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return 
+	}
+	t.Execute(w, nil)
+}
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
@@ -12,7 +23,9 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Fprintln(w, "<h1>Home Page</h1>")
+	template_path := filepath.Join("templates", "home", "home.html")
+
+	renderTemplate(w,template_path)
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
