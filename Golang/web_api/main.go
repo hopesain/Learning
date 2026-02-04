@@ -26,6 +26,7 @@ func main() {
 	http.HandleFunc("/greet", greetHandler)
 	http.HandleFunc("/books", getBooks)
 	http.HandleFunc("/book", getBook)
+	http.HandleFunc("/book/create", createBook)
 
 	fmt.Println("Hello world, it's Hope!")
 	http.ListenAndServe(":8080", nil)
@@ -80,7 +81,7 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(books)
 }
 
-//http://localhost:8080/book?id=1
+// http://localhost:8080/book?id=1
 func getBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	id := r.URL.Query().Get("id")
@@ -88,9 +89,30 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 	for _, book := range books {
 		if book.ID == id {
 			json.NewEncoder(w).Encode(book)
-			return 
+			return
 		}
 	}
 
 	http.Error(w, "book not found", http.StatusNotFound)
+}
+
+func createBook(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, "Method not allowes", http.StatusMethodNotAllowed)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	var newBook Book
+
+	err := json.NewDecoder(r.Body).Decode(&newBook)
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	books = append(books, newBook)
+	json.NewEncoder(w).Encode(newBook)
 }
