@@ -25,6 +25,7 @@ func main() {
 	http.HandleFunc("/", helloworldHandler)
 	http.HandleFunc("/greet", greetHandler)
 	http.HandleFunc("/books", getBooks)
+	http.HandleFunc("/book", getBook)
 
 	fmt.Println("Hello world, it's Hope!")
 	http.ListenAndServe(":8080", nil)
@@ -80,3 +81,16 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 }
 
 //http://localhost:8080/book?id=1
+func getBook(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	id := r.URL.Query().Get("id")
+
+	for _, book := range books {
+		if book.ID == id {
+			json.NewEncoder(w).Encode(book)
+			return 
+		}
+	}
+
+	http.Error(w, "book not found", http.StatusNotFound)
+}
