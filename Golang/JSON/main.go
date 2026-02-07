@@ -39,6 +39,25 @@ func main() {
 	}
 
 	litter.Dump(secondUser)
+
+	var thirdUser User
+
+	thirdUserJSON := `
+		{
+			"id": 5,
+			"first_name": "Ali",
+			"last_name": "Issah",
+			"age": 15
+		}
+	`
+
+	err = json.Unmarshal([]byte(thirdUserJSON), &thirdUser)
+	if err != nil {
+		slog.Error("Unable to marshal json", "error", err)
+	}
+
+	litter.Dump(thirdUser)
+
 }
 
 type User struct {
